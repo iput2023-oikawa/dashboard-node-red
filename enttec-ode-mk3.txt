@@ -1,0 +1,424 @@
+[
+    {
+        "id": "09774f29fa8bfeee",
+        "type": "ui_button",
+        "z": "9129b6d454435948",
+        "name": "",
+        "group": "94f001520cb73084",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "RED",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "red",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 310,
+        "y": 600,
+        "wires": [
+            [
+                "7fc1537304ec6435"
+            ]
+        ]
+    },
+    {
+        "id": "04c35dcee077d090",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 7",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":3,\n    \"value\":255\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 640,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "23efab78a27d7f6b",
+        "type": "sACN",
+        "z": "9129b6d454435948",
+        "server": "ec108ced7e7e498a",
+        "universe": "",
+        "channel": "",
+        "transition": "instant",
+        "transitionRate": 50,
+        "transitionTime": 1000,
+        "name": "",
+        "x": 1000,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "043102c585c3af51",
+        "type": "ui_button",
+        "z": "9129b6d454435948",
+        "name": "",
+        "group": "94f001520cb73084",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "GREEN",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "green",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 640,
+        "wires": [
+            [
+                "7fc1537304ec6435"
+            ]
+        ]
+    },
+    {
+        "id": "85b947f91f32546f",
+        "type": "ui_button",
+        "z": "9129b6d454435948",
+        "name": "",
+        "group": "94f001520cb73084",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "BLUE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "blue",
+        "className": "",
+        "icon": "",
+        "payload": "blue",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 310,
+        "y": 680,
+        "wires": [
+            [
+                "7fc1537304ec6435"
+            ]
+        ]
+    },
+    {
+        "id": "be3541236e1734f3",
+        "type": "ui_button",
+        "z": "9129b6d454435948",
+        "name": "",
+        "group": "94f001520cb73084",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "WHITE",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "white",
+        "className": "",
+        "icon": "",
+        "payload": "white",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 720,
+        "wires": [
+            [
+                "7fc1537304ec6435"
+            ]
+        ]
+    },
+    {
+        "id": "4dcc499fd57d11c0",
+        "type": "ui_button",
+        "z": "9129b6d454435948",
+        "name": "",
+        "group": "94f001520cb73084",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "CLEAR",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "clear",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 760,
+        "wires": [
+            [
+                "7fc1537304ec6435"
+            ]
+        ]
+    },
+    {
+        "id": "7fc1537304ec6435",
+        "type": "switch",
+        "z": "9129b6d454435948",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "red",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "green",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "blue",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "white",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "clear",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 530,
+        "y": 680,
+        "wires": [
+            [
+                "7c8ab1be38cb4122"
+            ],
+            [
+                "c1f2264fca4e7d8b"
+            ],
+            [
+                "04c35dcee077d090"
+            ],
+            [
+                "11e204081a3e91be",
+                "f823f8240ebaeaf7",
+                "35b51cf52697ebe4"
+            ],
+            [
+                "6dabef12b1db5add",
+                "4033f17665306543",
+                "59b7ed71650d47a6"
+            ]
+        ]
+    },
+    {
+        "id": "11e204081a3e91be",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 8",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":1,\n    \"value\":255\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 680,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "f823f8240ebaeaf7",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 9",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":2,\n    \"value\":255\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 720,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "35b51cf52697ebe4",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 10",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":3,\n    \"value\":255\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 760,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "6dabef12b1db5add",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 11",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":1,\n    \"value\":0\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 800,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "4033f17665306543",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 12",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":2,\n    \"value\":0\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 840,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "59b7ed71650d47a6",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 13",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":3,\n    \"value\":0\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 880,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "c1f2264fca4e7d8b",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 14",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":2,\n    \"value\":255\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 600,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "7c8ab1be38cb4122",
+        "type": "function",
+        "z": "9129b6d454435948",
+        "name": "function 15",
+        "func": "var value=msg.payload;\nmsg.payload= {\n    \"universe\":2,\n    \"channel\":1,\n    \"value\":255\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 560,
+        "wires": [
+            [
+                "23efab78a27d7f6b"
+            ]
+        ]
+    },
+    {
+        "id": "94f001520cb73084",
+        "type": "ui_group",
+        "name": "RGB",
+        "tab": "59d0cf892cbab33f",
+        "order": 10,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ec108ced7e7e498a",
+        "type": "sacn-config",
+        "hostOrUniverse": "192.168.1.80",
+        "port": "5568"
+    },
+    {
+        "id": "59d0cf892cbab33f",
+        "type": "ui_tab",
+        "name": "DMX",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
